@@ -1,0 +1,18 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background: #04293a;
+  padding: 1rem;
+  color: #ecb365;
+}
+
+header form {
+  padding: 0 30%;
+}
