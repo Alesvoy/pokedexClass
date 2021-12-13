@@ -16,3 +16,29 @@ header {
 header form {
   padding: 0 30%;
 }
+
+.display {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  padding: 0.75rem;
+  background: #064663;
+  color: #fff;
+  flex: 0 0 20%;
+  border-radius: 15px;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card img {
+  align-self: center;
+  width: 50%;
+}

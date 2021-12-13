@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from "./components/Header";
+import Display from "./components/Display";
 
 export class App extends Component {
   constructor() {
@@ -22,6 +23,7 @@ export class App extends Component {
           searchValue={this.state.searchValue}
           updateValue={this.updateValue}
         />
+        <Display />
       </>
     );
   }

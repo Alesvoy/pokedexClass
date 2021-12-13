@@ -7,7 +7,6 @@ export class Header extends Component {
 
   onSubmitHandler(e) {
     e.prevent.default();
-    console.log(e.target.value);
   }
 
   onChangeHandler = (e) => {
