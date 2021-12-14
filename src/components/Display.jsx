@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import Card from "./Card";
 
 export class Display extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     if (this.props.data[0] === null) {
       return (
