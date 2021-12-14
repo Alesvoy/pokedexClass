@@ -13,12 +13,12 @@ export class Form extends Component {
       this.props.updateData([response.data]);
     } else if (this.props.searchValue.length === 0) {
       const response = await pokemon.get("", {
-        params: { limit: 12 },
+        params: { limit: 16 },
       });
 
       let pokemonsData = [];
 
-      for (let i = 0; i < 12; i++) {
+      for (let i = 0; i < 16; i++) {
         const pokemonData = await pokemon.get(
           `/${response.data.results[i].name}`
         );

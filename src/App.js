@@ -9,7 +9,7 @@ export class App extends Component {
     super();
     this.state = {
       searchValue: "",
-      data: new Array(12).fill(null),
+      data: new Array(16).fill(null),
     };
   }
 
@@ -27,12 +27,12 @@ export class App extends Component {
 
   componentDidMount = async () => {
     const response = await pokemon.get("", {
-      params: { limit: 12 },
+      params: { limit: 16 },
     });
 
     let pokemonsData = [];
 
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 16; i++) {
       const pokemonData = await pokemon.get(
         `/${response.data.results[i].name}`
       );
