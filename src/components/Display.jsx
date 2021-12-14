@@ -14,7 +14,13 @@ export class Display extends Component {
     return (
       <div className="display">
         {this.props.data.map((item) => {
-          return <Card key={item.id} data={item} />;
+          return (
+            <Card
+              key={item.id}
+              data={item}
+              updatePokemonDetails={this.props.updatePokemonDetails}
+            />
+          );
         })}
       </div>
     );

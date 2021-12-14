@@ -1,6 +1,12 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export class Card extends Component {
+  onClickHandler(data) {
+    console.log(data);
+    this.props.updatePokemonDetails(data);
+  }
+
   render() {
     if (this.props.data[0] === null) {
       return (
@@ -16,14 +22,20 @@ export class Card extends Component {
     }
 
     return (
-      <div className="card">
+      <Link
+        className="card"
+        to={`/pokemon/${this.props.data.name}`}
+        onClick={() => {
+          this.onClickHandler(this.props.data);
+        }}
+      >
         <img src={`${this.props.data.sprites.front_default}`} alt="Pokemon" />
         <p>#{this.props.data.id}</p>
         <h3>{this.props.data.name}</h3>
         {this.props.data.types.map((item) => {
           return <p key={item.type.name}>{item.type.name}</p>;
         })}
-      </div>
+      </Link>
     );
   }
 }

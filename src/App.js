@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Display from "./components/Display";
+import PokemonDetails from "./pages/PokemonDetails";
 
 import pokemon from "./api/pokemon";
 
@@ -11,6 +13,7 @@ export class App extends Component {
       searchValue: "",
       data: new Array(16).fill(null),
       allPokemonNames: [],
+      pokemonDetails: {},
     };
   }
 
@@ -23,6 +26,12 @@ export class App extends Component {
   updateData = (newData) => {
     this.setState({
       data: newData,
+    });
+  };
+
+  updatePokemonDetails = (data) => {
+    this.setState({
+      pokemonDetails: data,
     });
   };
 
@@ -53,16 +62,33 @@ export class App extends Component {
 
   render() {
     return (
-      <>
-        <Header
-          searchValue={this.state.searchValue}
-          updateValue={this.updateValue}
-          data={this.state.data}
-          updateData={this.updateData}
-          allPokemonNames={this.state.allPokemonNames}
-        />
-        <Display data={this.state.data} />
-      </>
+      <Router>
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <>
+                <Header
+                  searchValue={this.state.searchValue}
+                  updateValue={this.updateValue}
+                  data={this.state.data}
+                  updateData={this.updateData}
+                  allPokemonNames={this.state.allPokemonNames}
+                />
+                <Display
+                  data={this.state.data}
+                  updatePokemonDetails={this.updatePokemonDetails}
+                />
+              </>
+            }
+          ></Route>
+          <Route
+            path="/pokemon/*"
+            element={<PokemonDetails data={this.state.pokemonDetails} />}
+          />
+        </Routes>
+      </Router>
     );
   }
 }

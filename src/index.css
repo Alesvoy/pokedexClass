@@ -35,6 +35,10 @@ header form {
   border-radius: 15px;
 }
 
+.card:hover {
+  color: #fff;
+}
+
 .card h3 {
   margin-top: 0;
 }
