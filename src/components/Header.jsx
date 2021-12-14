@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Form from "./Form";
 
 export class Header extends Component {
   onSubmitHandler(e) {
@@ -14,16 +15,12 @@ export class Header extends Component {
     return (
       <header>
         <h1>Pokédex</h1>
-        <form className="ui form">
-          <div className="field">
-            <input
-              type="text"
-              placeholder="Search by name or number..."
-              value={this.props.searchValue}
-              onChange={this.onChangeHandler}
-            />
-          </div>
-        </form>
+        <Form
+          data={this.props.data}
+          updateData={this.props.updateData}
+          searchValue={this.props.searchValue}
+          updateValue={this.props.updateValue}
+        />
       </header>
     );
   }

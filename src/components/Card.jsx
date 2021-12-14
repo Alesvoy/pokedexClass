@@ -18,7 +18,6 @@ export class Card extends Component {
         </div>
       );
     }
-    console.log(this.props.data);
 
     return (
       <div className="card">

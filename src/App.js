@@ -19,6 +19,12 @@ export class App extends Component {
     });
   };
 
+  updateData = (newData) => {
+    this.setState({
+      data: newData,
+    });
+  };
+
   componentDidMount = async () => {
     const response = await pokemon.get("", {
       params: { limit: 12 },
@@ -36,8 +42,6 @@ export class App extends Component {
     this.setState({
       data: pokemonsData,
     });
-
-    console.log(this.state.data);
   };
 
   render() {
@@ -46,6 +50,8 @@ export class App extends Component {
         <Header
           searchValue={this.state.searchValue}
           updateValue={this.updateValue}
+          data={this.state.data}
+          updateData={this.updateData}
         />
         <Display data={this.state.data} />
       </>
