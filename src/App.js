@@ -49,8 +49,6 @@ export class App extends Component {
       data: pokemonsData,
       allPokemonNames: allPokemonData,
     });
-
-    console.log(this.state.data);
   };
 
   render() {
