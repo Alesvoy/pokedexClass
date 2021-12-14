@@ -27,14 +27,20 @@ export class Form extends Component {
         );
         pokemonsData.push(pokemonData.data);
       }
-
       this.props.updateData(pokemonsData);
     }
   };
 
-  onClickHandler() {
-    console.log("click!");
-  }
+  onClickHandler = async () => {
+    const pokemonsData = [];
+    for (let i = 0; i < 16; i++) {
+      let randNum = Math.floor(Math.random() * 898) + 1;
+      const response = await pokemon.get(`/${randNum}`);
+      pokemonsData.push(response.data);
+    }
+
+    this.props.updateData(pokemonsData);
+  };
 
   render() {
     return (

@@ -17,10 +17,7 @@ export class Card extends Component {
 
     return (
       <div className="card">
-        <img
-          src={`${this.props.data.sprites.other.dream_world.front_default}`}
-          alt="Pokemon"
-        />
+        <img src={`${this.props.data.sprites.front_default}`} alt="Pokemon" />
         <p>#{this.props.data.id}</p>
         <h3>{this.props.data.name}</h3>
         {this.props.data.types.map((item) => {
