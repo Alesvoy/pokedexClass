@@ -5,6 +5,9 @@ export default class PokemonDetails extends Component {
     const { data } = this.props;
     return (
       <>
+        <header>
+          <h1>Pokédex</h1>
+        </header>
         <h1>{data.name}</h1>
       </>
     );
