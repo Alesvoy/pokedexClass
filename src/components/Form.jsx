@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Autocomplete from "@mui/material/Autocomplete";
+import TextField from "@mui/material/TextField";
 import pokemon from "../api/pokemon";
 
 export class Form extends Component {
@@ -33,11 +35,20 @@ export class Form extends Component {
     return (
       <form className="ui form" onSubmit={this.onSubmitHandler}>
         <div className="field">
-          <input
+          {/* <input
             type="text"
             placeholder="Search by name or number..."
             value={this.props.searchValue}
             onChange={this.onChangeHandler}
+          /> */}
+          <Autocomplete
+            id="free-solo-demo"
+            freeSolo
+            options={this.props.allPokemonNames}
+            onKeyPress={this.onChangeHandler}
+            renderInput={(params) => (
+              <TextField {...params} label="Search by name or number..." />
+            )}
           />
         </div>
       </form>

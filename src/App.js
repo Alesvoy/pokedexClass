@@ -10,6 +10,7 @@ export class App extends Component {
     this.state = {
       searchValue: "",
       data: new Array(16).fill(null),
+      allPokemonNames: [],
     };
   }
 
@@ -27,10 +28,11 @@ export class App extends Component {
 
   componentDidMount = async () => {
     const response = await pokemon.get("", {
-      params: { limit: 16 },
+      params: { limit: 898 },
     });
 
     let pokemonsData = [];
+    let allPokemonData = [];
 
     for (let i = 0; i < 16; i++) {
       const pokemonData = await pokemon.get(
@@ -39,8 +41,13 @@ export class App extends Component {
       pokemonsData.push(pokemonData.data);
     }
 
+    for (let i = 0; i < 898; i++) {
+      allPokemonData.push(response.data.results[i].name);
+    }
+
     this.setState({
       data: pokemonsData,
+      allPokemonNames: allPokemonData,
     });
   };
 
@@ -52,6 +59,7 @@ export class App extends Component {
           updateValue={this.updateValue}
           data={this.state.data}
           updateData={this.updateData}
+          allPokemonNames={this.state.allPokemonNames}
         />
         <Display data={this.state.data} />
       </>

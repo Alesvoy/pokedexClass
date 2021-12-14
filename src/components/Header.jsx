@@ -20,6 +20,7 @@ export class Header extends Component {
           updateData={this.props.updateData}
           searchValue={this.props.searchValue}
           updateValue={this.props.updateValue}
+          allPokemonNames={this.props.allPokemonNames}
         />
       </header>
     );
