@@ -48,3 +48,11 @@ header form {
   width: 50%;
   height: 50%;
 }
+
+.container {
+  padding: 3rem;
+}
+
+.container img {
+  min-width: 10%;
+}

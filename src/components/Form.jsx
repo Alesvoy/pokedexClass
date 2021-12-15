@@ -12,8 +12,12 @@ export class Form extends Component {
   onSubmitHandler = async (e) => {
     e.preventDefault();
     if (this.props.searchValue.length > 0) {
-      const response = await pokemon.get(`/${this.props.searchValue}`);
-      this.props.updateData([response.data]);
+      try {
+        const response = await pokemon.get(`/${this.props.searchValue}`);
+        this.props.updateData([response.data]);
+      } catch (error) {
+        console.error("No pokemon found!");
+      }
     } else if (this.props.searchValue.length === 0) {
       const response = await pokemon.get("", {
         params: { limit: 16 },
